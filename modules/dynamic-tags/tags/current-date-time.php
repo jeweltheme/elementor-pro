@@ -110,7 +110,7 @@ class Current_Date_Time extends Tag {
 			}
 		}
 
-		$value = date( $format );
+		$value = current_time( $format );
 
 		echo wp_kses_post( $value );
 	}

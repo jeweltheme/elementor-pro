@@ -89,6 +89,20 @@ class Products_Renderer extends \WC_Shortcode_Products {
 			$this->set_tags_query_args( $query_args );
 
 			$query_args = apply_filters( 'woocommerce_shortcode_products_query', $query_args, $this->attributes, $this->type );
+
+			if ( 'yes' === $settings['paginate'] && 'yes' === $settings['allow_order'] ) {
+				$ordering_args = WC()->query->get_catalog_ordering_args();
+			} else {
+				$ordering_args = WC()->query->get_catalog_ordering_args( $query_args['orderby'], $query_args['order'] );
+			}
+
+			$query_args['orderby'] = $ordering_args['orderby'];
+			$query_args['order'] = $ordering_args['order'];
+			if ( $ordering_args['meta_key'] ) {
+				$query_args['meta_key'] = $ordering_args['meta_key'];
+			}
+
+			$query_args['posts_per_page'] = intval( $settings['columns'] * $settings['rows'] );
 		} // End if().
 
 		if ( 'yes' === $settings['paginate'] ) {
@@ -98,14 +112,7 @@ class Products_Renderer extends \WC_Shortcode_Products {
 				$query_args['paged'] = $page;
 			}
 
-			if ( 'yes' === $settings['allow_order'] ) {
-				$ordering_args = WC()->query->get_catalog_ordering_args( $query_args['orderby'], $query_args['order'] );
-				$query_args['orderby'] = $ordering_args['orderby'];
-				$query_args['order'] = $ordering_args['order'];
-				if ( $ordering_args['meta_key'] ) {
-					$query_args['meta_key'] = $ordering_args['meta_key'];
-				}
-			} else {
+			if ( 'yes' !== $settings['allow_order'] ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 			}
 

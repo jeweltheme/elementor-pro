@@ -173,8 +173,10 @@ class Mailchimp extends Integration_Base {
 			$subscriber['interests'] = [];
 		}
 
-		foreach ( $form_settings['mailchimp_groups'] as $mailchimp_group ) {
-			$subscriber['interests'][ $mailchimp_group ] = true;
+		if ( is_array( $form_settings['mailchimp_groups'] ) ) {
+			foreach ( $form_settings['mailchimp_groups'] as $mailchimp_group ) {
+				$subscriber['interests'][ $mailchimp_group ] = true;
+			}
 		}
 
 		if ( 'default' === $form_settings['mailchimp_api_key_source'] ) {

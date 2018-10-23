@@ -2,8 +2,11 @@
 /**
  * Plugin Name: Elementor Pro
  * Description: Elementor Pro brings a whole new design experience to WordPress. Customize your entire theme: header, footer, single post, archive and 404 page, all with one page builder.
- * Version: 2.1.10
  * GitHub Plugin URI: https://github.com/chiotis/elementor-pro
+ * Author: Elementor.com
+ * Version: 2.1.11
+ * Author URI: https://elementor.com/
+ *
  * Text Domain: elementor-pro
  */
 
@@ -11,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'ELEMENTOR_PRO_VERSION', '2.1.10' );
+define( 'ELEMENTOR_PRO_VERSION', '2.1.11' );
 define( 'ELEMENTOR_PRO_PREVIOUS_STABLE_VERSION', '2.0.18' );
 
 define( 'ELEMENTOR_PRO__FILE__', __FILE__ );
@@ -78,7 +81,7 @@ function elementor_pro_fail_load() {
 
 		$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
 
-		$message = '<p>' . __( 'Elementor Pro not working because you need to activate the Elementor plugin.', 'elementor-pro' ) . '</p>';
+		$message = '<p>' . __( 'Elementor Pro is not working because you need to activate the Elementor plugin.', 'elementor-pro' ) . '</p>';
 		$message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $activation_url, __( 'Activate Elementor Now', 'elementor-pro' ) ) . '</p>';
 	} else {
 		if ( ! current_user_can( 'install_plugins' ) ) {
@@ -87,7 +90,7 @@ function elementor_pro_fail_load() {
 
 		$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
 
-		$message = '<p>' . __( 'Elementor Pro not working because you need to install the Elementor plugin', 'elementor-pro' ) . '</p>';
+		$message = '<p>' . __( 'Elementor Pro is not working because you need to install the Elementor plugin.', 'elementor-pro' ) . '</p>';
 		$message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $install_url, __( 'Install Elementor Now', 'elementor-pro' ) ) . '</p>';
 	}
 
@@ -102,7 +105,7 @@ function elementor_pro_fail_load_out_of_date() {
 	$file_path = 'elementor/elementor.php';
 
 	$upgrade_link = wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' ) . $file_path, 'upgrade-plugin_' . $file_path );
-	$message = '<p>' . __( 'Elementor Pro not working because you are using an old version of Elementor.', 'elementor-pro' ) . '</p>';
+	$message = '<p>' . __( 'Elementor Pro is not working because you are using an old version of Elementor.', 'elementor-pro' ) . '</p>';
 	$message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $upgrade_link, __( 'Update Elementor Now', 'elementor-pro' ) ) . '</p>';
 
 	echo '<div class="error">' . $message . '</div>';

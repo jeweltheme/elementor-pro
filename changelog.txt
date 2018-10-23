@@ -1,5 +1,17 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.1.11- 2018-10-22
+* New: Added ACF local fields compatibility
+* Tweak: Re-brand TypeKit by Adobe Fonts integration
+* Fix: Exclude `is_embed` from Singular condition ([#5915](https://github.com/pojome/elementor/issues/5915))
+* Fix: Avoid conflict with Ad Blockers and Share Buttons
+* Fix: Current date time dynamic tag now shows local time
+* Fix: Avoid conflict with 3rd party plugins that filter the permalink
+* Fix: Avoid PHP warning when no groups are selected for MailChimp integration
+* Fix: Avoid PHP warning if checkbox field is empty for ACF
+* Fix: Respect password protected for a WC single product template
+* Fix: Respect `order` settings for WC archive also without pagination
+
 #### 2.1.10 - 2018-10-09
 * Tweak: Added responsive alignment control for Share Buttons widget ([#5821](https://github.com/pojome/elementor/issues/5821))
 * Tweak: Added link control to Animated Headline widget

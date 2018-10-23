@@ -44,7 +44,11 @@ class Module extends DynamicTags\Module {
 		foreach ( $acf_groups as $acf_group ) {
 			// ACF >= 5.0.0
 			if ( function_exists( 'acf_get_fields' ) ) {
-				$fields = acf_get_fields( $acf_group['ID'] );
+				if ( isset( $acf_group['ID'] ) && ! empty( $acf_group['ID'] ) ) {
+					$fields = acf_get_fields( $acf_group['ID'] );
+				} else {
+					$fields = acf_get_fields( $acf_group );
+				}
 			} else {
 				$fields = apply_filters( 'acf/field_group/get_fields', [], $acf_group['id'] );
 			}
