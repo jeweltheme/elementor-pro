@@ -2,7 +2,6 @@
 /**
  * Plugin Name: Elementor Pro
  * Description: Elementor Pro brings a whole new design experience to WordPress. Customize your entire theme: header, footer, single post, archive and 404 page, all with one page builder.
- * GitHub Plugin URI: https://github.com/chiotis/elementor-pro
  * Author: Elementor.com
  * Version: 2.1.11
  * Author URI: https://elementor.com/
