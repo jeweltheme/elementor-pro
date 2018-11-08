@@ -3,6 +3,7 @@ namespace ElementorPro\Modules\CustomCss;
 
 use Elementor\Controls_Manager;
 use Elementor\Controls_Stack;
+use Elementor\Core\DynamicTags\Dynamic_CSS;
 use Elementor\Core\Files\CSS\Post;
 use Elementor\Element_Base;
 use Elementor\Element_Column;
@@ -94,6 +95,10 @@ class Module extends Module_Base {
 	 * @param $element  Element_Base
 	 */
 	public function add_post_css( $post_css, $element ) {
+		if ( $post_css instanceof Dynamic_CSS ) {
+			return;
+		}
+
 		$element_settings = $element->get_settings();
 
 		if ( empty( $element_settings['custom_css'] ) ) {

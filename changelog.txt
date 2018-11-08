@@ -1,5 +1,13 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.1.12- 2018-11-05
+* Tweak: Added compatibility for the upcoming release of Elementor v2.3
+* Tweak: Better performance for Template Library widget
+* Fix: Fatal error if a taxonomy used in a dynamic field is removed ([#6029](https://github.com/pojome/elementor/issues/6029))
+* Fix: Date Time dynamic tag now respect site language ([#6001](https://github.com/pojome/elementor/issues/6001))
+* Fix: Custom CSS printed twice in the front-end
+* Fix: ACF Image field PHP warning ([#6051](https://github.com/pojome/elementor/issues/6051))
+
 #### 2.1.11- 2018-10-22
 * New: Added ACF local fields compatibility
 * Tweak: Re-brand TypeKit by Adobe Fonts integration

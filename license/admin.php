@@ -345,6 +345,15 @@ class Admin {
 		}, 550 );
 	}
 
+	public function add_finder_item( array $categories ) {
+		$categories['settings']['items']['license'] = [
+			'title' => __( 'License', 'elementor-pro' ),
+			'link' => self::get_url(),
+		];
+
+		return $categories;
+	}
+
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'register_page' ], 800 );
 		add_action( 'admin_post_elementor_pro_activate_license', [ $this, 'action_activate_license' ] );
@@ -354,6 +363,8 @@ class Admin {
 
 		// Add the license key to Templates Library requests
 		add_filter( 'elementor/api/get_templates/body_args', [ $this, 'filter_library_get_templates_args' ] );
+
+		add_filter( 'elementor/finder/categories', [ $this, 'add_finder_item' ] );
 
 		add_filter( 'plugin_action_links_' . ELEMENTOR_PRO_PLUGIN_BASE, [ $this, 'plugin_action_links' ], 50 );
 

@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.1.11 - 22-10-2018 */
+/*! elementor-pro - v2.1.12 - 05-11-2018 */
 @charset "UTF-8";
 .elementor-bg-transform .elementor-bg {
   will-change: transform; }
@@ -4926,6 +4926,10 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
       font-family: inherit;
       opacity: 0.6; }
     .elementor-search-form__input:-ms-input-placeholder {
+      color: inherit;
+      font-family: inherit;
+      opacity: 0.6; }
+    .elementor-search-form__input:-moz-placeholder {
       color: inherit;
       font-family: inherit;
       opacity: 0.6; }

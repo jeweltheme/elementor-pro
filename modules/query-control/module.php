@@ -175,6 +175,8 @@ class Module extends Module_Base {
 					];
 				}
 				break;
+			default:
+				$results = apply_filters( 'elementor_pro/query_control/get_autocomplete/' . $_POST['filter_type'], [] );
 		} // End switch().
 
 		wp_send_json_success(
