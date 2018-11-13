@@ -492,7 +492,7 @@ class Fonts_Manager {
 	public function add_finder_item( array $categories ) {
 		$categories['settings']['items']['custom-fonts'] = [
 			'title' => __( 'Custom Fonts', 'elementor-pro' ),
-			'link' => admin_url( 'edit.php?post_type=' . self::CPT ),
+			'url' => admin_url( 'edit.php?post_type=' . self::CPT ),
 			'keywords' => [ 'custom', 'fonts', 'elementor' ],
 		];
 

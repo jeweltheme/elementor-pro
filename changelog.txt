@@ -1,5 +1,9 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.1.13- 2018-11-12
+* Tweak: Added compatibility for new brand Finder in v2.3.0
+* Fix: Settings conflict when there are multiple carousels in the page
+
 #### 2.1.12- 2018-11-05
 * Tweak: Added compatibility for the upcoming release of Elementor v2.3
 * Tweak: Better performance for Template Library widget

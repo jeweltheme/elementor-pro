@@ -155,9 +155,9 @@ abstract class Base extends Base_Widget {
 				'default' => 'yes',
 				'label_off' => __( 'Hide', 'elementor-pro' ),
 				'label_on' => __( 'Show', 'elementor-pro' ),
-				'frontend_available' => true,
 				'prefix_class' => 'elementor-arrows-',
 				'render_type' => 'template',
+				'frontend_available' => true,
 			]
 		);
 

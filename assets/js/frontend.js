@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.1.12 - 05-11-2018 */
+/*! elementor-pro - v2.1.13 - 12-11-2018 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -420,15 +420,6 @@ module.exports = elementorFrontend.Module.extend({
 		var elementSettings = this.getElementSettings();
 
 		var swiperOptions = {
-			navigation: {
-				prevEl: '.elementor-swiper-button-prev',
-				nextEl: '.elementor-swiper-button-next'
-			},
-			pagination: {
-				el: '.swiper-pagination',
-				type: elementSettings.pagination,
-				clickable: true
-			},
 			grabCursor: true,
 			initialSlide: this.getInitialSlide(),
 			slidesPerView: this.getDesktopSlidesPerView(),
@@ -438,6 +429,21 @@ module.exports = elementorFrontend.Module.extend({
 			speed: elementSettings.speed,
 			effect: this.getEffect()
 		};
+
+		if (elementSettings.show_arrows) {
+			swiperOptions.navigation = {
+				prevEl: '.elementor-swiper-button-prev',
+				nextEl: '.elementor-swiper-button-next'
+			};
+		}
+
+		if (elementSettings.pagination) {
+			swiperOptions.pagination = {
+				el: '.swiper-pagination',
+				type: elementSettings.pagination,
+				clickable: true
+			};
+		}
 
 		if ('cube' !== this.getEffect()) {
 			var breakpointsSettings = {},

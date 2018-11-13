@@ -348,7 +348,7 @@ class Admin {
 	public function add_finder_item( array $categories ) {
 		$categories['settings']['items']['license'] = [
 			'title' => __( 'License', 'elementor-pro' ),
-			'link' => self::get_url(),
+			'url' => self::get_url(),
 		];
 
 		return $categories;

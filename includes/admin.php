@@ -155,7 +155,7 @@ class Admin {
 		$categories['settings']['items']['integrations'] = [
 			'title' => __( 'Integrations', 'elementor-pro' ),
 			'icon' => 'integration',
-			'link' => $settings_url . '#tab-integrations',
+			'url' => $settings_url . '#tab-integrations',
 			'keywords' => [ 'integrations', 'settings', 'typekit', 'facebook', 'recaptcha', 'mailchimp', 'drip', 'activecampaign', 'getresponse', 'convertkit', 'elementor' ],
 		];
 
