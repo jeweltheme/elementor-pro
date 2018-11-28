@@ -80,6 +80,27 @@ class Module extends Module_Base {
 		return $results;
 	}
 
+	public function get_value_title_for_library_widget_templates( $results, $request ) {
+		$ids = (array) $request['id'];
+
+		$query = new \WP_Query(
+			[
+				'post_type' => Source_Local::CPT,
+				'post__in' => $ids,
+				'posts_per_page' => -1,
+			]
+		);
+
+		foreach ( $query->posts as $post ) {
+			$document = Plugin::elementor()->documents->get( $post->ID );
+			if ( $document ) {
+				$results[ $post->ID ] = $post->post_title . ' (' . $document->get_title() . ')';
+			}
+		}
+
+		return $results;
+	}
+
 	public function add_actions() {
 		add_action( 'widgets_init', [ $this, 'register_wp_widgets' ] );
 	}
@@ -87,8 +108,8 @@ class Module extends Module_Base {
 	public function add_filters() {
 		add_filter( 'elementor_pro/editor/localize_settings', [ $this, 'localize_settings' ] );
 		add_filter( 'elementor_pro/admin/localize_settings', [ $this, 'localize_settings' ] ); // For WordPress Widgets and Customizer
-		add_filter( 'elementor_pro/query_control/get_autocomplete/library_widget_templates', [ $this, 'get_autocomplete_for_library_widget_templates' ] ); // For WordPress Widgets and Customizer
-
+		add_filter( 'elementor_pro/query_control/get_autocomplete/library_widget_templates', [ $this, 'get_autocomplete_for_library_widget_templates' ] );
+		add_filter( 'elementor_pro/query_control/get_value_titles/library_widget_templates', [ $this, 'get_value_title_for_library_widget_templates' ], 10, 2 );
 		add_filter( 'elementor/widgets/black_list', function( $black_list ) {
 			$black_list[] = 'ElementorPro\Modules\Library\WP_Widgets\Elementor_Library';
 

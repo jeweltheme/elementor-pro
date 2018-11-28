@@ -9,6 +9,7 @@ class Products_Renderer extends \WC_Shortcode_Products {
 
 	private $settings = [];
 	private $is_added_product_filter = false;
+	private $is_current_query = false;
 
 	public function __construct( $settings = [], $type = 'products' ) {
 		$this->settings = $settings;
@@ -22,11 +23,60 @@ class Products_Renderer extends \WC_Shortcode_Products {
 		$this->query_args = $this->parse_query_args();
 	}
 
+	/**
+	 * Override the original `get_query_results`
+	 * with modifications that:
+	 * 1. Do not query again the DB if `is_current_query`.
+	 * 2. Remove `pre_get_posts` action if `is_added_product_filter`.
+	 *
+	 * @return bool|mixed|object
+	 */
+
 	protected function get_query_results() {
-		$results = parent::get_query_results();
+		$transient_name = $this->get_transient_name();
+		$cache = wc_string_to_bool( $this->attributes['cache'] ) === true;
+		$results = $cache ? get_transient( $transient_name ) : false;
+
+		if ( false === $results ) {
+			// Start edit #1.
+			if ( $this->is_current_query ) {
+				$query = $GLOBALS['wp_the_query'];
+				$query->posts = array_map( function ( $post ) {
+					return $post->ID;
+				}, $query->posts );
+
+				//  End edit #1.
+			} elseif ( 'top_rated_products' === $this->type ) {
+				add_filter( 'posts_clauses', array( __CLASS__, 'order_by_rating_post_clauses' ) );
+				$query = new \WP_Query( $this->query_args );
+				remove_filter( 'posts_clauses', array( __CLASS__, 'order_by_rating_post_clauses' ) );
+			} else {
+				$query = new \WP_Query( $this->query_args );
+			}
+
+			$paginated = ! $query->get( 'no_found_rows' );
+
+			$results = (object) array(
+				'ids' => wp_parse_id_list( $query->posts ),
+				'total' => $paginated ? (int) $query->found_posts : count( $query->posts ),
+				'total_pages' => $paginated ? (int) $query->max_num_pages : 1,
+				'per_page' => (int) $query->get( 'posts_per_page' ),
+				'current_page' => $paginated ? (int) max( 1, $query->get( 'paged', 1 ) ) : 1,
+			);
+
+			if ( $cache ) {
+				set_transient( $transient_name, $results, DAY_IN_SECONDS * 30 );
+			}
+		}
+
+		// Remove ordering query arguments which may have been added by get_catalog_ordering_args.
+		WC()->query->remove_ordering_args();
+
+		// Start edit #2.
 		if ( $this->is_added_product_filter ) {
 			remove_action( 'pre_get_posts', [ wc()->query, 'product_query' ] );
 		}
+		// End edit #2.
 
 		return $results;
 	}
@@ -53,6 +103,7 @@ class Products_Renderer extends \WC_Shortcode_Products {
 
 			add_action( 'pre_get_posts', [ wc()->query, 'product_query' ] );
 			$this->is_added_product_filter = true;
+			$this->is_current_query = true;
 
 		} else {
 			$query_args = [
