@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.2.2 - 28-11-2018 */
+/*! elementor-pro - v2.2.3 - 29-11-2018 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -1893,7 +1893,9 @@ var MenuHandler = elementorFrontend.Module.extend({
 
 	followMenuAnchor: function followMenuAnchor($element) {
 		var anchorSelector = $element[0].hash,
-		    $anchor = jQuery(anchorSelector),
+
+		// `decodeURIComponent` for UTF8 characters in the hash.
+		$anchor = jQuery(decodeURIComponent(anchorSelector)),
 		    offset = -300;
 
 		if (!$anchor.length) {

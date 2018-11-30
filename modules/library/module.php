@@ -48,6 +48,10 @@ class Module extends Module_Base {
 	}
 
 	public function get_autocomplete_for_library_widget_templates() {
+		$document_types = Plugin::elementor()->documents->get_document_types( [
+			'show_in_library' => true,
+		] );
+
 		$query_params = [
 			's' => $_POST['q'],
 			'post_type' => Source_Local::CPT,
@@ -57,8 +61,8 @@ class Module extends Module_Base {
 			'meta_query' => [
 				[
 					'key' => Document::TYPE_META_KEY,
-					'value' => 'widget',
-					'compare' => '!=',
+					'value' => array_keys( $document_types ),
+					'compare' => 'IN',
 				],
 			],
 		];
