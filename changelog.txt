@@ -1,5 +1,10 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.2.4 - 2018-12-04
+* Fix: Global widget not saving changes ([#6340](https://github.com/pojome/elementor/issues/6340))
+* Fix: Dynamic tags support in Blockquote widget ([#6334](https://github.com/pojome/elementor/issues/6334))
+* Fix: Forms Redirect URL action when using form field values with spaces
+
 #### 2.2.3 - 2018-11-29
 * Fix: Missing "Edit Template" in Template widget ([#6271](https://github.com/pojome/elementor/issues/6271))
 * Fix: Follow menu anchors with UTF8 characters in Nav Menu
@@ -16,6 +21,7 @@
 * Tweak: Added filter `elementor_pro/dynamic_tags/shortcode/should_escape` to avoid escaping in Shortcode dynamic tag
 * Tweak: MailPoet3 integration allow Subscriber to to subscribe to multiple lists
 * Tweak: Added front-end max file size validation for upload fields
+* Tweak: Added `by-author` per Post-Type condition for theme builder
 * Fix: Template widget panel not showing the selected template ([#6271](https://github.com/pojome/elementor/issues/6271))
 * Fix: Conflict between ACF with Safari browser on Select option in Dynamic tag
 * Fix: Add post classes only for the Single template
