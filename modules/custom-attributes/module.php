@@ -54,12 +54,11 @@ class Module extends Module_Base {
 	 * @param $section_id string
 	 */
 	public function register_controls( Controls_Stack $element, $section_id ) {
+		$required_section_id = '';
 		if ( $element instanceof Element_Section || $element instanceof Widget_Base ) {
 			$required_section_id = '_section_responsive';
 		} elseif ( $element instanceof Element_Column ) {
 			$required_section_id = 'section_advanced';
-		} else {
-			$required_section_id = 'section_page_style';
 		}
 
 		if ( $required_section_id !== $section_id ) {

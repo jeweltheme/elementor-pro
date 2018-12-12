@@ -1,5 +1,16 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.2.5 - 2018-12-11
+* New: Add Style Tab & Custom CSS for Header & Footer Templates.
+* Tweak: Added a better identifier for subpages ([#6362](https://github.com/pojome/elementor/issues/6362))
+* Tweak: Removed Custom Attributes from page settings
+* Fix: Yahoo event URL date issue ([#6354](https://github.com/pojome/elementor/issues/6354))
+* Fix: Allow timezone settings in Google event URL ([#6354](https://github.com/pojome/elementor/issues/6354))
+* Fix: Avoid `z-index` changes by `nanocss` in build process
+* Fix: Added missing WC upsale products CSS
+* Fix: Nav Menu dropdown losing color on hover
+* Fix: WC Product Add-ons CSS compatibility
+
 #### 2.2.4 - 2018-12-04
 * Fix: Global widget not saving changes ([#6340](https://github.com/pojome/elementor/issues/6340))
 * Fix: Dynamic tags support in Blockquote widget ([#6334](https://github.com/pojome/elementor/issues/6334))

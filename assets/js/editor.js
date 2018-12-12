@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.2.4 - 04-12-2018 */
+/*! elementor-pro - v2.2.5 - 11-12-2018 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -1702,7 +1702,7 @@ module.exports = function () {
 		var customCSS = elementor.settings.page.model.get('custom_css');
 
 		if (customCSS) {
-			customCSS = customCSS.replace(/selector/g, '.elementor-page-' + elementor.config.document.id);
+			customCSS = customCSS.replace(/selector/g, elementor.config.settings.page.cssWrapperSelector);
 			elementor.settings.page.getControlsCSS().elements.$stylesheetElement.append(customCSS);
 		}
 	};
