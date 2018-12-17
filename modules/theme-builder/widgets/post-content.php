@@ -151,6 +151,7 @@ class Post_Content extends Widget_Base {
 
 			// Print manually (and don't use `the_content()`) because it's within another `the_content` filter, and the Elementor filter has been removed to avoid recursion.
 			$content = Plugin::elementor()->frontend->get_builder_content( $post->ID, true );
+			$content = apply_filters( 'the_content', $content );
 
 			// Restore edit mode state
 			Plugin::elementor()->editor->set_edit_mode( $is_edit_mode );
