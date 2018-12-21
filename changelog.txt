@@ -1,5 +1,9 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.3.1 - 2018-12-19
+* Fix: Template widget search functionality ([#6473](https://github.com/pojome/elementor/issues/6473))
+* Fix: Apply `the_content` filter to post content in theme builder
+
 #### 2.3.0 - 2018-12-17
 * New: Introducing Discord Integration for Forms ([#4218](https://github.com/pojome/elementor/issues/4218))
 * New: Introducing Slack Integration for Forms
