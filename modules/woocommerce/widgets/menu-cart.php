@@ -2,13 +2,9 @@
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
-use Elementor\Utils;
 use ElementorPro\Modules\Woocommerce\Module;
-use ElementorPro\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly

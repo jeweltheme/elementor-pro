@@ -76,12 +76,10 @@ class Products_Renderer extends \WC_Shortcode_Products {
 
 			$query_args['meta_query'] = WC()->query->get_meta_query();
 			$query_args['tax_query'] = [];
-			// @codingStandardsIgnoreEnd
 
 			// Visibility.
 			$this->set_visibility_query_args( $query_args );
 
-			// SKUs.
 			$this->set_featured_query_args( $query_args );
 
 			// IDs.

@@ -20,7 +20,34 @@ class Rest_Client {
 			 ->set_request_arg( 'sslverify', false )
 			 ->add_headers( 'User-Agent', $this->user_agent );
 
+		/**
+		 * Elementor form Rest Client Init
+		 *
+		 * Fires on client init
+		 *
+		 * @since 2.4.0
+		 *
+		 * @param Rest_Client $this
+		 */
+		do_action( 'elementor-pro/forms/rest_client/init', $this );
+
 		return $this;
+	}
+
+	/**
+	 * set base url
+	 * @param string $url
+	 */
+	public function set_base_url( $url ) {
+		$this->api_base_url = $url;
+	}
+
+	/**
+	 * get base url
+	 * @return string
+	 */
+	public function get_base_url() {
+		return $this->api_base_url;
 	}
 
 	/**
