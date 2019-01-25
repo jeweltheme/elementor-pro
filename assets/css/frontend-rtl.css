@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.4.0 - 21-01-2019 */
+/*! elementor-pro - v2.4.2 - 25-01-2019 */
 @charset "UTF-8";
 .elementor-bg-transform .elementor-bg {
   will-change: transform; }
@@ -2205,8 +2205,14 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
       -ms-flex-pack: center;
           justify-content: center; }
 
-.woocommerce div.product.elementor .elementor-add-to-cart--align-justify form.cart div.quantity, .woocommerce div.product.elementor .elementor-add-to-cart--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart div.quantity {
-  margin-left: auto; }
+.woocommerce div.product.elementor .elementor-add-to-cart--align-justify form.cart:not(.grouped_form):not(.variations_form),
+.woocommerce div.product.elementor .elementor-add-to-cart--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart {
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap; }
+  .woocommerce div.product.elementor .elementor-add-to-cart--align-justify form.cart:not(.grouped_form):not(.variations_form) div.quantity,
+  .woocommerce div.product.elementor .elementor-add-to-cart--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart div.quantity {
+    margin-left: auto; }
 
 .woocommerce div.product.elementor .elementor-add-to-cart--align-justify button {
   -webkit-flex-basis: 100%;
@@ -2229,8 +2235,14 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  .woocommerce div.product.elementor .elementor-add-to-cart-tablet--align-justify form.cart div.quantity, .woocommerce div.product.elementor .elementor-add-to-cart-tablet--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart div.quantity {
-    margin-left: auto; }
+  .woocommerce div.product.elementor .elementor-add-to-cart-tablet--align-justify form.cart:not(.grouped_form):not(.variations_form),
+  .woocommerce div.product.elementor .elementor-add-to-cart-tablet--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart {
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; }
+    .woocommerce div.product.elementor .elementor-add-to-cart-tablet--align-justify form.cart:not(.grouped_form):not(.variations_form) div.quantity,
+    .woocommerce div.product.elementor .elementor-add-to-cart-tablet--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart div.quantity {
+      margin-left: auto; }
   .woocommerce div.product.elementor .elementor-add-to-cart-tablet--align-justify button {
     -webkit-flex-basis: 100%;
         -ms-flex-preferred-size: 100%;
@@ -2252,8 +2264,14 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  .woocommerce div.product.elementor .elementor-add-to-cart-mobile--align-justify form.cart div.quantity, .woocommerce div.product.elementor .elementor-add-to-cart-mobile--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart div.quantity {
-    margin-left: auto; }
+  .woocommerce div.product.elementor .elementor-add-to-cart-mobile--align-justify form.cart:not(.grouped_form):not(.variations_form),
+  .woocommerce div.product.elementor .elementor-add-to-cart-mobile--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart {
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; }
+    .woocommerce div.product.elementor .elementor-add-to-cart-mobile--align-justify form.cart:not(.grouped_form):not(.variations_form) div.quantity,
+    .woocommerce div.product.elementor .elementor-add-to-cart-mobile--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart div.quantity {
+      margin-left: auto; }
   .woocommerce div.product.elementor .elementor-add-to-cart-mobile--align-justify button {
     -webkit-flex-basis: 100%;
         -ms-flex-preferred-size: 100%;
@@ -5369,7 +5387,7 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
   display: -ms-flexbox;
   display: flex;
   pointer-events: none;
-  background: none; }
+  background-color: transparent; }
   .elementor-popup-modal .dialog-header, .elementor-popup-modal .dialog-buttons-wrapper {
     display: none; }
   .elementor-popup-modal .dialog-close-button {
@@ -5377,7 +5395,8 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
     top: 20px;
     left: 20px;
     opacity: 1;
-    z-index: 9999; }
+    z-index: 9999;
+    pointer-events: all; }
   .elementor-popup-modal .dialog-widget-content {
     width: initial;
     overflow: visible;
