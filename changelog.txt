@@ -1,5 +1,11 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.4.3 - 2019-01-30
+* Fix: Custom Add to Cart widget responsive alignment settings
+* Fix: Links in Post Info widget
+* Fix: WooCommerce `View Cart` string translate
+* Fix: Wrapper classes for header/footer templates ([#6884](https://github.com/pojome/elementor/issues/6884))
+
 #### 2.4.2 - 2019-01-25
 * Tweak: Added pixel units to Close Button position control in Popups
 * Fix: Exclude error in WC Products widget
