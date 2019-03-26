@@ -5,20 +5,23 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Scheme_Typography;
-use ElementorPro\Modules\Woocommerce\Classes\Products_Renderer;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Archive_Products extends Products {
+/**
+ * Class Archive_Products_Deprecated
+ * @deprecated 2.4.1 use Archive_Products
+ */
+class Archive_Products_Deprecated extends Products {
 
 	public function get_name() {
-		return 'wc-archive-products';
+		return 'woocommerce-archive-products';
 	}
 
 	public function get_title() {
-		return __( 'Archive Products', 'elementor-pro' );
+		return __( 'Archive Products (deprecated)', 'elementor-pro' );
 	}
 
 	public function get_categories() {
@@ -27,67 +30,24 @@ class Archive_Products extends Products {
 		];
 	}
 
+	/* Deprecated Widget */
+	public function show_in_panel() {
+		return false;
+	}
+
 	protected function _register_controls() {
 		parent::_register_controls();
 
-		$this->remove_responsive_control( 'columns' );
-		$this->remove_responsive_control( 'rows' );
-		$this->remove_control( 'orderby' );
-		$this->remove_control( 'order' );
-
-		$this->update_control(
-			'products_class',
-			[
-				'prefix_class' => 'elementor-',
-			]
-		);
-
-		// Should be kept as hidden since required for "allow_order"
-		$this->update_control(
-			'paginate',
-			[
-				'type' => 'hidden',
-				'default' => 'yes',
-			]
-		);
-
-		$this->update_control(
-			'allow_order',
-			[
-				'default' => 'yes',
-			]
-		);
-
 		$this->start_injection( [
 			'at' => 'before',
-			'of' => 'allow_order',
+			'of' => 'columns',
 		] );
 
-		if ( ! get_theme_support( 'woocommerce' ) ) {
-			$this->add_control(
-				'wc_notice_wc_not_supported',
-				[
-					'type' => Controls_Manager::RAW_HTML,
-					'raw' => __( 'Looks like you are using WooCommerce, while your theme does not support it. Please consider switching themes.', 'elementor-pro' ),
-					'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
-				]
-			);
-		}
-
 		$this->add_control(
-			'wc_notice_use_customizer',
+			'wc_notice_do_not_use_customizer',
 			[
 				'type' => Controls_Manager::RAW_HTML,
-				'raw' => __( 'To change the Products Archive’s layout, go to Appearance > Customize.', 'elementor-pro' ),
-				'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
-			]
-		);
-
-		$this->add_control(
-			'wc_notice_wrong_data',
-			[
-				'type' => Controls_Manager::RAW_HTML,
-				'raw' => __( 'The editor preview might look different from the live site. Please make sure to check the frontend.', 'elementor-pro' ),
+				'raw' => __( 'Note that these layout settings will override settings made in Appearance > Customize', 'elementor-pro' ),
 				'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
 			]
 		);
@@ -95,7 +55,17 @@ class Archive_Products extends Products {
 		$this->end_injection();
 
 		$this->update_control(
-			'show_result_count',
+			'rows',
+			[
+				'default' => 4,
+			],
+			[
+				'recursive' => true,
+			]
+		);
+
+		$this->update_control(
+			'paginate',
 			[
 				'default' => 'yes',
 			]
@@ -109,7 +79,7 @@ class Archive_Products extends Products {
 		);
 
 		$this->update_control(
-			Products_Renderer::QUERY_CONTROL_NAME . '_post_type',
+			'query_post_type',
 			[
 				'default' => 'current_query',
 			]
