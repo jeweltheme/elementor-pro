@@ -1,5 +1,10 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.5.1 - 2019-03-26
+* Fix: Query Control invalid call to deprecated action ([#7619](https://github.com/elementor/elementor/issues/7619))
+* Tweak: Renamed action hook from `elementor_pro/{$widget_name}/query/{$query_id}` to `elementor/query/{$query_id}`
+* Tweak: Renamed filter hook from `elementor_pro/query_control/get_query_args/current_query` to `elementor/query/get_query_args/current_query`
+
 #### 2.5.0 - 2019-03-26
 * New: Introducing Motion Effects including Scrolling & Mouse effects ([#72](https://github.com/elementor/elementor/issues/72))
 * New: Introducing Related Posts for Query Control ([#7306](https://github.com/elementor/elementor/issues/7306), [#7490](https://github.com/elementor/elementor/issues/7490))

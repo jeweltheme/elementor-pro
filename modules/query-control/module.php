@@ -43,7 +43,7 @@ class Module extends Module_Base {
 	 * @param Widget_Base $widget
 	 */
 	public static function add_exclude_controls( $widget ) {
-		// _deprecated_function( __METHOD__, '2.4.0', 'class Group_Control_Query' );
+		// _deprecated_function( __METHOD__, '2.5.0', 'class Group_Control_Query' );
 
 		$widget->add_control(
 			'exclude',
@@ -357,7 +357,7 @@ class Module extends Module_Base {
 	 * @return array
 	 */
 	public function get_query_args( $control_id, $settings ) {
-		// _deprecated_function( __METHOD__, '2.4.0', 'class Elementor_Post_Query' );
+		// _deprecated_function( __METHOD__, '2.5.0', 'class Elementor_Post_Query' );
 
 		$controls_manager = Plugin::elementor()->controls_manager;
 
@@ -387,7 +387,7 @@ class Module extends Module_Base {
 	}
 
 	/**
-	 * @deprecated 2.4.0
+	 * @deprecated 2.5.0
 	 * @param \WP_Query &$query
 	 */
 	public function fix_query_offset( &$query ) {
@@ -401,7 +401,7 @@ class Module extends Module_Base {
 	}
 
 	/**
-	 * @deprecated 2.4.0
+	 * @deprecated 2.5.0
 	 *
 	 * @param int       $found_posts
 	 * @param \WP_Query $query

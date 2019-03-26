@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Class Group_Control_Posts
- * @deprecated since 2.4.0, use class Group_Control_Query and Elementor_Post_Query
+ * @deprecated since 2.5.0, use class Group_Control_Query and Elementor_Post_Query
  */
 class Group_Control_Posts extends Group_Control_Base {
 

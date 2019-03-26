@@ -98,8 +98,7 @@ class Elementor_Post_Query {
 			 *
 			 * @param array $current_query_vars Current query variables.
 			 */
-			//TODO: use apply_filters_deprecated()
-			$current_query_vars = apply_filters( 'elementor_pro/query_control/get_query_args/current_query', $current_query_vars );
+			$current_query_vars = apply_filters_deprecated( 'elementor_pro/query_control/get_query_args/current_query', [ $current_query_vars ], '2.5.0', 'use: elementor/query/get_query_args/current_query' );
 			$current_query_vars = apply_filters( 'elementor/query/get_query_args/current_query', $current_query_vars );
 			$this->query_args = $current_query_vars;
 			return $current_query_vars;
@@ -352,7 +351,7 @@ class Elementor_Post_Query {
 			 * @param \WP_Query     $wp_query
 			 * @param Widget_Base   $this->current_widget
 			 */
-			do_action_deprecated( "elementor_pro/{$widget_name}/query/{$query_id}", $wp_query, $this->widget, '2.4.0', 'use: elementor/query/your_query_id' );
+			do_action_deprecated( "elementor_pro/{$widget_name}/query/{$query_id}", [ $wp_query, $this->widget ], '2.5.0', 'use: elementor/query/your_query_id' );
 			do_action( "elementor/query/{$query_id}", $wp_query, $this->widget );
 		}
 	}
