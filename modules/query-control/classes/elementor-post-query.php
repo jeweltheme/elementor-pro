@@ -112,10 +112,10 @@ class Elementor_Post_Query {
 		if ( 'by_id' !== $post_type ) {
 
 			$this->set_post_exclude_args();
+			$this->set_avoid_duplicates();
 			$this->set_terms_args();
 			$this->set_author_args();
 			$this->set_date_args();
-
 		}
 
 		$this->query_args = apply_filters( 'elementor/query/query_args', $this->query_args, $this->widget );
@@ -143,15 +143,14 @@ class Elementor_Post_Query {
 
 	protected function set_post_include_args() {
 
-		if ( ( empty( $this->get_widget_settings( 'include' ) ) ) || ( 'by_id' !== $this->get_widget_settings( 'post_type' ) ) ) {
-			return;
-		}
+		if ( 'by_id' === $this->get_widget_settings( 'post_type' ) ) {
 
-		$this->set_query_arg( 'post__in', $this->get_widget_settings( 'posts_ids' ) );
+			$this->set_query_arg( 'post__in', $this->get_widget_settings( 'posts_ids' ) );
 
-		if ( empty( $this->query_args['post__in'] ) ) {
-			// If no selection - return an empty query
-			$this->query_args['post__in'] = [ 0 ];
+			if ( empty( $this->query_args['post__in'] ) ) {
+				// If no selection - return an empty query
+				$this->query_args['post__in'] = [ 0 ];
+			}
 		}
 	}
 
@@ -178,11 +177,15 @@ class Elementor_Post_Query {
 			}
 		}
 
-		if ( $this->get_widget_settings( 'avoid_duplicates' ) ) {
-			$post__not_in = array_merge( $post__not_in, Module::$displayed_ids );
-		}
-
 		$this->set_query_arg( 'post__not_in', $post__not_in );
+	}
+
+	protected function set_avoid_duplicates() {
+		if ( 'yes' === $this->get_widget_settings( 'avoid_duplicates' ) ) {
+			$post__not_in = isset( $this->query_args['post__not_in'] ) ? $this->query_args['post__not_in'] : [];
+			$post__not_in = array_merge( $post__not_in, Module::$displayed_ids );
+			$this->set_query_arg( 'post__not_in', $post__not_in );
+		}
 	}
 
 	protected function set_terms_args() {

@@ -1,5 +1,11 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.5.2 - 2019-03-27
+* Fix: Overwrite parent widget type in Global Widget ([#7632](https://github.com/elementor/elementor/issues/7632))
+* Fix: Avoid Duplicates option not working in Query Control ([#7635](https://github.com/elementor/elementor/issues/7635))
+* Fix: Manual Selection option not working in Query Control ([#7634](https://github.com/elementor/elementor/issues/7634))
+* Fix: Incorrect condition caused handlers issues inside popup
+
 #### 2.5.1 - 2019-03-26
 * Fix: Query Control invalid call to deprecated action ([#7619](https://github.com/elementor/elementor/issues/7619))
 * Tweak: Renamed action hook from `elementor_pro/{$widget_name}/query/{$query_id}` to `elementor/query/{$query_id}`
