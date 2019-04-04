@@ -63,8 +63,8 @@ class Elementor_Post_Query {
 		$query = new \WP_Query( $this->query_args );
 
 		remove_action( 'pre_get_posts', [ $this, 'pre_get_posts_query_filter' ] );
-		remove_action( 'pre_get_posts', [ $this, 'fix_query_offset' ] );
-		remove_filter( 'found_posts', [ $this, 'fix_query_found_posts' ] );
+		remove_action( 'pre_get_posts', [ $this, 'fix_query_offset' ], 1 );
+		remove_filter( 'found_posts', [ $this, 'fix_query_found_posts' ], 1 );
 
 		Module::add_to_avoid_list( wp_list_pluck( $query->posts, 'ID' ) );
 
@@ -213,34 +213,20 @@ class Elementor_Post_Query {
 			return;
 		}
 
-		$terms = [];
-		foreach ( $settings_terms as $id ) {
-			$term_data = get_term_by( 'term_taxonomy_id', $id );
-			$taxonomy = $term_data->taxonomy;
-			$terms[ $taxonomy ][] = $id;
-		}
-		$this->insert_tax_query( $terms, $exclude );
-	}
+		$query = [
+			'field' => 'term_taxonomy_id',
+			'terms' => $settings_terms,
+		];
 
-	protected function insert_tax_query( $terms, $exclude ) {
-		$tax_query = [];
-		foreach ( $terms as $taxonomy => $ids ) {
-			$query = [
-				'taxonomy' => $taxonomy,
-				'field' => 'term_id',
-				'terms' => $ids,
-			];
-
-			if ( $exclude ) {
-				$query['operator'] = 'NOT IN';
-			}
-
-			$tax_query[] = $query;
+		if ( $exclude ) {
+			$query['operator'] = 'NOT IN';
 		}
 
-		if ( empty( $tax_query ) ) {
+		if ( empty( $query ) ) {
 			return;
 		}
+
+		$tax_query = [ $query ];
 
 		if ( empty( $this->query_args['tax_query'] ) ) {
 			$this->query_args['tax_query'] = $tax_query;
