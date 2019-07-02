@@ -119,7 +119,7 @@ class Products extends Products_Base {
 				'prefix_class' => 'elementor-products-columns%s-',
 				'min' => 1,
 				'max' => 12,
-				'default' => 4,
+				'default' => Products_Renderer::DEFAULT_COLUMNS_AND_ROWS,
 				'required' => true,
 				'render_type' => 'template',
 				'device_args' => [
@@ -142,7 +142,7 @@ class Products extends Products_Base {
 			[
 				'label' => __( 'Rows', 'elementor-pro' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => 4,
+				'default' => Products_Renderer::DEFAULT_COLUMNS_AND_ROWS,
 				'render_type' => 'template',
 				'range' => [
 					'px' => [

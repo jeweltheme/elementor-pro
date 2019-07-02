@@ -321,7 +321,7 @@ class Categories extends Widget_Base {
 					'value' => Scheme_Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .woocommerce-loop-category__title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .woocommerce .woocommerce-loop-category__title' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -331,7 +331,7 @@ class Categories extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .woocommerce-loop-category__title',
+				'selector' => '{{WRAPPER}} .woocommerce .woocommerce-loop-category__title',
 			]
 		);
 

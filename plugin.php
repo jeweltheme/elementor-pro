@@ -5,6 +5,7 @@ use ElementorPro\Core\Connect;
 use Elementor\Core\Responsive\Files\Frontend as FrontendFile;
 use Elementor\Core\Responsive\Responsive;
 use Elementor\Utils;
+use ElementorPro\Core\Editor\Notice_Bar;
 use ElementorPro\Core\Upgrade\Manager as UpgradeManager;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -156,10 +157,17 @@ class Plugin {
 			$frontend_file_url = ELEMENTOR_PRO_ASSETS_URL . 'css/' . $frontend_file_name;
 		}
 
+		wp_register_style(
+			'elementor-icons-bc',
+			ELEMENTOR_PRO_ASSETS_URL . 'lib/eicons-bc/css/elementor-icons.min.css',
+			[],
+			'1.0.0'
+		);
+
 		wp_enqueue_style(
 			'elementor-pro',
 			$frontend_file_url,
-			[],
+			[ 'elementor-icons-bc' ],
 			$has_custom_file ? null : ELEMENTOR_PRO_VERSION
 		);
 	}
@@ -317,6 +325,13 @@ class Plugin {
 
 	public function on_elementor_init() {
 		$this->modules_manager = new Manager();
+
+		$elementor = Plugin::elementor();
+
+		/** TODO: BC for Elementor v2.6.0 */
+		if ( $elementor->editor->notice_bar ) {
+			$elementor->editor->notice_bar = new Notice_Bar();
+		}
 
 		/** TODO: BC for Elementor v2.4.0 */
 		if ( class_exists( '\Elementor\Core\Upgrade\Manager' ) ) {

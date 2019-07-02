@@ -307,7 +307,7 @@ class Reviews extends Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
-					'default' => __( 'Official Color', 'elementor-pro' ),
+					'default' => __( 'Official', 'elementor-pro' ),
 					'custom' => __( 'Custom', 'elementor-pro' ),
 				],
 			]

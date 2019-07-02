@@ -85,17 +85,8 @@ class Module extends Module_Base {
 				'relation' => 'or',
 				'terms' => [
 					[
-						'terms' => [
-							[
-								'name' => 'background_background',
-								'value' => 'classic',
-							],
-							[
-								'name' => 'background_image[url]',
-								'operator' => '!==',
-								'value' => '',
-							],
-						],
+						'name' => 'background_background',
+						'value' => 'classic',
 					],
 					[
 						'terms' => [

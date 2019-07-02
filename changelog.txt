@@ -1,13 +1,21 @@
 # Elementor Pro - by Elementor.com
 
-#### 2.5.8 - 2019-05-28
+#### 2.5.10 - 2019-05-28
+* Tweak: Added compatibility for the upcoming release of Elementor v2.6
+* Tweak: Error caused by empty Rows & Columns values in Products widget ([#8261](https://github.com/elementor/elementor/issues/8261))
+* Fix: Do not unset `product` CPT if it's not from WooCommerce ([#8160](https://github.com/elementor/elementor/issues/8160))
+* Fix: Column Spacing not working in WooCommerce Archive Products widget ([#8285](https://github.com/elementor/elementor/issues/8285))
+* Fix: Title styling not working in Products Categories widget
+* Fix: Empty value in Dynamic Pods Gallery dropdown using Safari browser
+* Fix: WooCommerce archives included in "All Archives" condition
+
+#### 2.5.9 - 2019-05-28
 * Tweak: Removed `auto-confirm` control from MailPoet to support new version of MailPoet
 * Fix: Multiple Custom Fonts not rendered in the editor
 * Fix: Products `sale` query - handle exclude by manual selection.
 * Fix: Product Categories grid row & column style
 * Fix: Form integration AJAX cache override
 * Fix: Removed redundant CSS on Canvas & Header-Footer page templates
-
 
 #### 2.5.8 - 2019-05-06
 * Fix: Popup entrance animation not working in frontend

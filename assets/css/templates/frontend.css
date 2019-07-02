@@ -1956,6 +1956,8 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
 .elementor-menu-cart__toggle .elementor-button-icon {
   position: relative;
   transition: color 0.1s; }
+  .elementor-menu-cart__toggle .elementor-button-icon i {
+    font-family: 'eicons-bc'; }
 
 .elementor-menu-cart--items-indicator-bubble .elementor-menu-cart__toggle .elementor-button-icon[data-counter]:before {
   content: attr(data-counter);
@@ -3648,10 +3650,8 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.05);
   color: #494c4f; }
-  .elementor-menu-toggle i:before {
-    content: '\e804'; }
   .elementor-menu-toggle.elementor-active i:before {
-    content: '\e909'; }
+    content: '\e87f'; }
 
 .elementor-nav-menu--dropdown {
   background-color: #fff;

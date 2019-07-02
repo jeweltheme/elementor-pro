@@ -21,6 +21,17 @@ class Module extends Module_Base {
 		return Plugin::elementor()->preview->is_preview_mode() || is_preview();
 	}
 
+	public static function get_public_post_types( $args = [] ) {
+		$post_types = Utils::get_public_post_types( $args );
+
+		// Product form WooCommerce are handled separately.
+		if ( class_exists( 'woocommerce' ) ) {
+			unset( $post_types['product'] );
+		}
+
+		return $post_types;
+	}
+
 	public function get_name() {
 		return 'theme-builder';
 	}
@@ -187,11 +198,10 @@ class Module extends Module_Base {
 	}
 
 	public function print_post_type_field() {
-		$post_types = Utils::get_public_post_types( [
+		$post_types = self::get_public_post_types( [
 			'exclude_from_search' => false,
 		] );
 
-		unset( $post_types['product'] );
 		if ( empty( $post_types ) ) {
 			return;
 		}
