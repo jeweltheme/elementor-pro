@@ -329,7 +329,7 @@ class Plugin {
 		$elementor = Plugin::elementor();
 
 		/** TODO: BC for Elementor v2.6.0 */
-		if ( $elementor->editor->notice_bar ) {
+		if ( ! empty( $elementor->editor->notice_bar ) ) {
 			$elementor->editor->notice_bar = new Notice_Bar();
 		}
 

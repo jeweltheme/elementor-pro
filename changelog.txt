@@ -1,5 +1,11 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.5.11 - 2019-06-02
+* Fix: Close icon missing from Nav Menu widget ([#8460](https://github.com/elementor/elementor/issues/8460))
+* Fix: Elementor Pro v2.5.10 shows PHP notice regarding notice bar ([#8461](https://github.com/elementor/elementor/issues/8461))
+* Fix: Fatal error when deleting used Pods fields ([#8396](https://github.com/elementor/elementor/issues/8396))
+* Fix: Missing dropdown icon in conditions screen
+
 #### 2.5.10 - 2019-05-28
 * Tweak: Added compatibility for the upcoming release of Elementor v2.6
 * Tweak: Error caused by empty Rows & Columns values in Products widget ([#8261](https://github.com/elementor/elementor/issues/8261))
