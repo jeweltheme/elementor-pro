@@ -1,6 +1,11 @@
 # Elementor Pro - by Elementor.com
 
-#### 2.5.11 - 2019-06-02
+#### 2.5.12 - 2019-07-10
+* Fix: Grid for WooCommerce Archive Product widget
+* Fix: Remove redundant `whitespace` CSS property causes style glitch in iPad
+* Tweak: Added more compatibility for Elementor v2.6
+
+#### 2.5.11 - 2019-07-02
 * Fix: Close icon missing from Nav Menu widget ([#8460](https://github.com/elementor/elementor/issues/8460))
 * Fix: Elementor Pro v2.5.10 shows PHP notice regarding notice bar ([#8461](https://github.com/elementor/elementor/issues/8461))
 * Fix: Fatal error when deleting used Pods fields ([#8396](https://github.com/elementor/elementor/issues/8396))
