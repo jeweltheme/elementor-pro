@@ -1,5 +1,11 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.5.14 2019-07-14
+* Fix: Better WC Related Product grid support to various themes
+
+#### 2.5.13 2019-07-11
+* Fix: Better WC grid support to various themes
+
 #### 2.5.12 - 2019-07-10
 * Fix: Grid for WooCommerce Archive Product widget
 * Fix: Remove redundant `whitespace` CSS property causes style glitch in iPad
