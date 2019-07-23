@@ -59,7 +59,8 @@ class Products_Renderer extends \WC_Shortcode_Products {
 		$query_args['meta_query'] = WC()->query->get_meta_query();
 		$query_args['tax_query'] = [];
 
-		if ( 'yes' === $settings['paginate'] && 'yes' === $settings['allow_order'] ) {
+		$front_page = is_front_page();
+		if ( 'yes' === $settings['paginate'] && 'yes' === $settings['allow_order'] && ! $front_page ) {
 			$ordering_args = WC()->query->get_catalog_ordering_args();
 		} else {
 			$ordering_args = WC()->query->get_catalog_ordering_args( $query_args['orderby'], $query_args['order'] );
@@ -101,7 +102,7 @@ class Products_Renderer extends \WC_Shortcode_Products {
 				$query_args['paged'] = $page;
 			}
 
-			if ( 'yes' !== $settings['allow_order'] ) {
+			if ( 'yes' !== $settings['allow_order'] || $front_page ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 			}
 

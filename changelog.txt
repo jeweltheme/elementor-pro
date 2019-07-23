@@ -1,7 +1,45 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.6.6 2019-07-23
+* New: Introducing Custom Icon sets - including Fontello, IcoMoon and Fontastic support (#110)([#110](https://github.com/elementor/elementor/issues/110))
+* New: Added Font Awesome 5 Pro integration including 5,300+ icons (#4430)([#4430](https://github.com/elementor/elementor/issues/4430))
+* New: Added reCAPTCHA v3 integration to Form widget ([#8213](https://github.com/elementor/elementor/issues/8213), [#6039](https://github.com/elementor/elementor/issues/6039), [#7165](https://github.com/elementor/elementor/issues/7165))
+* Tweak: Added Exit Animation for Popups (#7063)([#7063](https://github.com/elementor/elementor/issues/7063))
+* Tweak: Added ACF Dynamic tag support for archive pages (#5147)([#5147](https://github.com/elementor/elementor/issues/5147))
+* Tweak: Added Navigator Indicators for Custom CSS & Motion Effects (#2180)([#2180](https://github.com/elementor/elementor/issues/2180))
+* Tweak: Added Dynamic capabilities for Form Redirect action (#7552)([#7552](https://github.com/elementor/elementor/issues/7552))
+* Tweak: Added Logged In Message styling options for Login widget (#7928)([#7928](https://github.com/elementor/elementor/issues/7928))
+* Tweak: Added `none` breakpoint option to Nav Menu widget (#7916)([#7916](https://github.com/elementor/elementor/issues/7916))
+* Tweak: Added option to place Post Terms dynamic tag without links (#8366)([#8366](https://github.com/elementor/elementor/issues/8366))
+* Tweak: Added `elementor/query/query_results` hook to Query Control to allow full control over results (#7912)([#7912](https://github.com/elementor/elementor/issues/7912))
+* Tweak: Allow choosing Heading HTML tag in Price Table widget (#8090)([#8090](https://github.com/elementor/elementor/issues/8090))
+* Tweak: Show popup on dynamic click even when `Avoid Multiple Popups` option is selected (#8189)([#8189](https://github.com/elementor/elementor/issues/8189))
+* Tweak: Added condition option to all of archive child pages (#8256)([#8256](https://github.com/elementor/elementor/issues/8256))
+* Tweak: Added `Effects Relative To` control to Scrolling Effects
+* Tweak: Allow shortcodes in HTML Form field
+* Tweak: Removed donReach integration from Share Buttons widget due to service inconsistent stability
+* Tweak: Changed MailChimp `List` label to `Audience`
+* Tweak: Improved Entrance and Exit animation behavior in Popup
+* Tweak: Added `Deprecated Notice` control to `Archive Products` and `Woo Products` widgets
+* Tweak: Added default dynamic title for archives in Theme Builder
+* Tweak: Added condition to show `Centered Slides` control in Media Carousel widget
+* Tweak: Added notice bar in the Editor when the license is expired or not activated
+* Tweak: Replaced `select` control with `choose` control in Price List widget
+* Tweak: Removed Font Awesome 4 dependencies from the Editor
+* Tweak: Minor styling tweaks in the Popup publish modal
+* Tweak: Hide ordering form in Products widget on front page
+* Tweak: Removed page title markup when 'Hide Title' is active
+* Tweak: Added style controls for HTML field in Form widget
+* Fix: Form widget Date picker makes the Popup builder disappear (#7240)([#7240](https://github.com/elementor/elementor/issues/7240))
+* Fix: Sticky element stop point stops working on viewport resize (#7884)([#7884](https://github.com/elementor/elementor/issues/7884))
+* Fix: Copy-Paste style not pasting the Pointer option in Nav Menu widget (#8497)([#8497](https://github.com/elementor/elementor/issues/8497))
+* Fix: Missing Print icon in Share Buttons (#8506)([#8506](https://github.com/elementor/elementor/issues/8506))
+* Fix: UI style glitch in Blockquote widget when viewing from iPad
+* Deprecated: `DB::save_editor()` - Remove usage of this method ([Deprecation Post](https://developers.elementor.com/v2-6-0-planned-deprecations/))
+* Deprecated: `DB::get_plain_editor()` - Remove usage of this method ([Deprecation Post](https://developers.elementor.com/v2-6-0-planned-deprecations/))
+
 #### 2.5.14 2019-07-14
-* Fix: Better WC Related Product grid support to various themes
+* Fix: Better WC Related Product grid support to various themes ([#8555](https://github.com/elementor/elementor/issues/8555))
 
 #### 2.5.13 2019-07-11
 * Fix: Better WC grid support to various themes

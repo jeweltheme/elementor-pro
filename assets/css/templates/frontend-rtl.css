@@ -578,6 +578,9 @@
     .elementor-price-table .elementor-price-table__features-list i {
       margin-left: 10px;
       font-size: 1.3em; }
+    .elementor-price-table .elementor-price-table__features-list svg {
+      margin-left: 10px;
+      width: 1.3em; }
   .elementor-price-table .elementor-price-table__footer {
     padding: 30px 0; }
   .elementor-price-table .elementor-price-table__additional_info {
@@ -1478,9 +1481,6 @@
   .elementor-share-btn__title {
     font-weight: bold;
     flex-shrink: 0; }
-    .elementor-share-btn__title + .elementor-share-btn__counter {
-      margin-right: 0.5em;
-      flex-shrink: 0; }
 
 .elementor-widget-share-buttons .elementor-widget-container {
   overflow: hidden; }
@@ -1948,31 +1948,31 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
   border-bottom: none; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--bag-light .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1009'; }
+  content: '\e8e3'; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--bag-medium .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1010'; }
+  content: '\e8e4'; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--bag-solid .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1011'; }
+  content: '\e8e5'; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--basket-light .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1012'; }
+  content: '\e8e6'; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--basket-medium .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1013'; }
+  content: '\e8e7'; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--basket-solid .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1014'; }
+  content: '\e8e8'; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--cart-light .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1015'; }
+  content: '\e8e9'; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--cart-medium .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1016'; }
+  content: '\e8ea'; }
 
 .elementor-widget-woocommerce-menu-cart.toggle-icon--cart-solid .elementor-menu-cart__toggle .elementor-button-icon i:before {
-  content: '\e1017'; }
+  content: '\e8eb'; }
 
 .elementor-menu-cart__toggle .elementor-button {
   background: transparent;
@@ -1989,8 +1989,6 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
 .elementor-menu-cart__toggle .elementor-button-icon {
   position: relative;
   transition: color 0.1s; }
-  .elementor-menu-cart__toggle .elementor-button-icon i {
-    font-family: 'eicons-bc'; }
 
 .elementor-menu-cart--items-indicator-bubble .elementor-menu-cart__toggle .elementor-button-icon[data-counter]:before {
   content: attr(data-counter);
@@ -2503,7 +2501,7 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
     color: #EB4924; }
   .elementor-widget-reviews .elementor-testimonial__icon.elementor-icon-telegram {
     color: #2CA5E0; }
-  .elementor-widget-reviews .elementor-testimonial__icon.elementor-icon-thumb-tack {
+  .elementor-widget-reviews .elementor-testimonial__icon.elementor-icon-thumb-tack, .elementor-widget-reviews .elementor-testimonial__icon.elementor-icon-thumbtack {
     color: #1aa1d8; }
   .elementor-widget-reviews .elementor-testimonial__icon.elementor-icon-tripadvisor {
     color: #589442; }
@@ -2536,7 +2534,7 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
 
 .elementor-widget-reviews .elementor-testimonial__rating {
   background-image: linear-gradient(to right, #ffc82c var(--rating), #cccccc var(--rating));
-  font-family: FontAwesome; }
+  font-family: eicons; }
 
 .elementor-widget-reviews .elementor-testimonial__header {
   display: flex;
@@ -3683,12 +3681,13 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
   background-color: rgba(0, 0, 0, 0.05);
   color: #494c4f; }
   .elementor-menu-toggle.elementor-active i:before {
-    content: '\e87f';
-    font-family: 'eicons-bc'; }
+    content: '\e87f'; }
 
 .elementor-nav-menu--dropdown {
   background-color: #fff;
   font-size: 13px; }
+  .elementor-nav-menu--dropdown-none .elementor-nav-menu--dropdown, .elementor-nav-menu--dropdown-none .elementor-menu-toggle {
+    display: none; }
   .elementor-nav-menu--dropdown.elementor-nav-menu__container {
     margin-top: 10px;
     transition: max-height 0.3s, transform 0.3s;

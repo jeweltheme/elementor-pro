@@ -174,6 +174,19 @@ class Products extends Products_Base {
 		);
 
 		$this->add_control(
+			'wc_notice_frontpage',
+			[
+				'type' => Controls_Manager::RAW_HTML,
+				'raw' => __( 'Ordering is not available if this widget is placed in your front page. Visible on frontend only.', 'elementor-pro' ),
+				'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
+				'condition' => [
+					'paginate' => 'yes',
+					'allow_order' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'show_result_count',
 			[
 				'label' => __( 'Show Result Count', 'elementor-pro' ),
