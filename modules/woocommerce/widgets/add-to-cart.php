@@ -57,7 +57,7 @@ class Add_To_Cart extends Widget_Button {
 				'options' => [],
 				'label_block' => true,
 				'autocomplete' => [
-					'object' => 'post',
+					'object' => Module::QUERY_OBJECT_POST,
 					'query' => [
 						'post_type' => [ 'product' ],
 					],

@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.6.0 - 23-07-2019 */
+/*! elementor-pro - v2.6.1 - 24-07-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -864,6 +864,7 @@ module.exports = elementor.modules.controls.Select2.extend({
 		}
 		// Specific for Group_Control_Query
 		if ('cpt_tax' === autocomplete.object) {
+			autocomplete.object = 'tax';
 			if (_.isEmpty(autocomplete.query) || _.isEmpty(autocomplete.query.post_type)) {
 				autocomplete.query.post_type = this.getControlValueByName('post_type');
 			}
@@ -915,14 +916,13 @@ module.exports = elementor.modules.controls.Select2.extend({
 
 	getValueTitles: function getValueTitles() {
 		var self = this,
-		    ids = this.getControlValue(),
+		    data = {},
+		    bcFormat = !_.isEmpty(this.model.get('filter_type'));
+
+		var ids = this.getControlValue(),
 		    action = 'query_control_value_titles',
-		    filterTypeName = 'autocomplete';
-
-		var data = {},
+		    filterTypeName = 'autocomplete',
 		    filterType = {};
-
-		var bcFormat = !_.isEmpty(this.model.get('filter_type'));
 
 		if (bcFormat) {
 			filterTypeName = 'filter_type';
@@ -934,7 +934,7 @@ module.exports = elementor.modules.controls.Select2.extend({
 			action = 'query_control_value_titles_deprecated';
 		} else {
 			filterType = this.model.get(filterTypeName).object;
-			data.get_titles = self.getQueryData();
+			data.get_titles = self.getQueryData().autocomplete;
 			data.unique_id = '' + self.cid + filterType;
 		}
 
@@ -953,10 +953,10 @@ module.exports = elementor.modules.controls.Select2.extend({
 			before: function before() {
 				self.addControlSpinner();
 			},
-			success: function success(data) {
+			success: function success(ajaxData) {
 				self.isTitlesReceived = true;
 
-				self.model.set('options', data);
+				self.model.set('options', ajaxData);
 
 				self.render();
 			}

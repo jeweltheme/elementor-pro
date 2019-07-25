@@ -80,7 +80,7 @@ class Post_Comments extends Base {
 				'type' => QueryControlModule::QUERY_CONTROL_ID,
 				'label_block' => true,
 				'autocomplete' => [
-					'object' => 'post',
+					'object' => QueryControlModule::QUERY_OBJECT_POST,
 				],
 				'condition' => [
 					'source_type' => Module::SOURCE_TYPE_CUSTOM,

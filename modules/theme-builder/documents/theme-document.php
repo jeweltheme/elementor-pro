@@ -149,7 +149,7 @@ abstract class Theme_Document extends Library_Document {
 				'type' => QueryModule::QUERY_CONTROL_ID,
 				'label_block' => true,
 				'autocomplete' => [
-					'object' => 'js',
+					'object' => QueryModule::QUERY_OBJECT_JS,
 				],
 				'separator' => 'none',
 				'export' => false,

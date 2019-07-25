@@ -73,7 +73,7 @@ class Internal_URL extends Data_Tag {
 			'options' => [],
 			'label_block' => true,
 			'autocomplete' => [
-				'object' => 'post',
+				'object' => QueryModule::QUERY_OBJECT_POST,
 				'display' => 'detailed',
 				'query' => [
 					'post_type' => 'any',
@@ -90,7 +90,7 @@ class Internal_URL extends Data_Tag {
 			'options' => [],
 			'label_block' => true,
 			'autocomplete' => [
-				'object' => 'tax',
+				'object' => QueryModule::QUERY_OBJECT_TAX,
 				'display' => 'detailed',
 			],
 			'condition' => [
@@ -104,7 +104,7 @@ class Internal_URL extends Data_Tag {
 			'options' => [],
 			'label_block' => true,
 			'autocomplete' => [
-				'object' => 'attachment',
+				'object' => QueryModule::QUERY_OBJECT_ATTACHMENT,
 				'display' => 'detailed',
 			],
 			'condition' => [
@@ -118,7 +118,7 @@ class Internal_URL extends Data_Tag {
 			'options' => [],
 			'label_block' => true,
 			'autocomplete' => [
-				'object' => 'author',
+				'object' => QueryModule::QUERY_OBJECT_AUTHOR,
 				'display' => 'detailed',
 			],
 			'condition' => [

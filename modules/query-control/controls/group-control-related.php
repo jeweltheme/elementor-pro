@@ -75,7 +75,7 @@ class Group_Control_Related extends Group_Control_Query {
 			'label_block' => true,
 			'multiple' => true,
 			'autocomplete' => [
-				'object' => 'post',
+				'object' => Query_Module::QUERY_OBJECT_POST,
 			],
 			'condition' => [
 				'post_type' => 'related',

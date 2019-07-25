@@ -52,7 +52,7 @@ class In_Taxonomy extends Condition_Base {
 					'dropdownCssClass' => 'elementor-conditions-select2-dropdown',
 				],
 				'autocomplete' => [
-					'object' => 'tax',
+					'object' => QueryModule::QUERY_OBJECT_TAX,
 					'display' => 'detailed',
 					'by_field' => 'term_id',
 					'query' => [

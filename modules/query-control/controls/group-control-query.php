@@ -79,7 +79,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'label_block' => true,
 			'multiple' => true,
 			'autocomplete' => [
-				'object' => 'post',
+				'object' => Query_Module::QUERY_OBJECT_POST,
 			],
 			'condition' => [
 				'post_type' => 'by_id',
@@ -116,7 +116,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'label_block' => true,
 			'multiple' => true,
 			'autocomplete' => [
-				'object' => 'cpt_tax',
+				'object' => Query_Module::QUERY_OBJECT_CPT_TAX,
 				'display' => 'detailed',
 			],
 			'group_prefix' => $name,
@@ -139,7 +139,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'default' => [],
 			'options' => [],
 			'autocomplete' => [
-				'object' => 'author',
+				'object' => Query_Module::QUERY_OBJECT_AUTHOR,
 			],
 			'condition' => [
 				'include' => 'authors',
@@ -193,7 +193,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'label_block' => true,
 			'multiple' => true,
 			'autocomplete' => [
-				'object' => 'post',
+				'object' => Query_Module::QUERY_OBJECT_POST,
 			],
 			'condition' => [
 				'exclude' => 'manual_selection',
@@ -214,7 +214,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'label_block' => true,
 			'multiple' => true,
 			'autocomplete' => [
-				'object' => 'cpt_tax',
+				'object' => Query_Module::QUERY_OBJECT_CPT_TAX,
 				'display' => 'detailed',
 			],
 			'group_prefix' => $name,
@@ -237,7 +237,7 @@ class Group_Control_Query extends Group_Control_Base {
 			'label_block' => true,
 			'multiple' => true,
 			'autocomplete' => [
-				'object' => 'author',
+				'object' => Query_Module::QUERY_OBJECT_AUTHOR,
 				'display' => 'detailed',
 			],
 			'condition' => [

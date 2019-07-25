@@ -47,7 +47,7 @@ class Post_Type_By_Author extends Condition_Base {
 					'dropdownCssClass' => 'elementor-conditions-select2-dropdown',
 				],
 				'autocomplete' => [
-					'object' => 'author',
+					'object' => QueryModule::QUERY_OBJECT_AUTHOR,
 				],
 			]
 		);

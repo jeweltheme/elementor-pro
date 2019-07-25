@@ -52,7 +52,7 @@ class Form_Action extends Action_Base {
 				'type' => QueryControlModule::QUERY_CONTROL_ID,
 				'label_block' => true,
 				'autocomplete' => [
-					'object' => 'library_template',
+					'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
 					'query' => [
 						'posts_per_page' => 20,
 						'meta_query' => [

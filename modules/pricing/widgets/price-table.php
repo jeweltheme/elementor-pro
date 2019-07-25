@@ -233,15 +233,15 @@ class Price_Table extends Base_Widget {
 				'default' => [
 					[
 						'item_text' => __( 'List Item #1', 'elementor-pro' ),
-						'item_icon' => $default_icon,
+						'selected_item_icon' => $default_icon,
 					],
 					[
 						'item_text' => __( 'List Item #2', 'elementor-pro' ),
-						'item_icon' => $default_icon,
+						'selected_item_icon' => $default_icon,
 					],
 					[
 						'item_text' => __( 'List Item #3', 'elementor-pro' ),
-						'item_icon' => $default_icon,
+						'selected_item_icon' => $default_icon,
 					],
 				],
 				'title_field' => '{{{ item_text }}}',
@@ -1516,7 +1516,7 @@ class Price_Table extends Base_Widget {
 						if ( ! isset( $item['item_icon'] ) && ! $migration_allowed ) {
 							$item['item_icon'] = 'fa fa-check-circle';
 						}
-						$is_new = empty( $item['item_icon'] ) && $migration_allowed;
+						$is_new = ! isset( $item['item_icon'] ) && $migration_allowed;
 						?>
 						<li class="elementor-repeater-item-<?php echo $item['_id']; ?>">
 							<div class="elementor-price-table__feature-inner">

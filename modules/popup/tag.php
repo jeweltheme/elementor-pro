@@ -51,7 +51,7 @@ class Tag extends DynamicTagsTag {
 				'label' => __( 'Popup', 'elementor-pro' ),
 				'type' => QueryControlModule::QUERY_CONTROL_ID,
 				'autocomplete' => [
-					'object' => 'library_template',
+					'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
 					'query' => [
 						'posts_per_page' => 20,
 						'meta_query' => [

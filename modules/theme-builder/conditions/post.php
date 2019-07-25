@@ -85,7 +85,7 @@ class Post extends Condition_Base {
 					'dropdownCssClass' => 'elementor-conditions-select2-dropdown',
 				],
 				'autocomplete' => [
-					'object' => 'post',
+					'object' => QueryModule::QUERY_OBJECT_POST,
 					'query' => [
 						'post_type' => $this->get_name(),
 					],

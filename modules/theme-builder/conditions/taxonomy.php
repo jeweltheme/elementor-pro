@@ -58,7 +58,7 @@ class Taxonomy extends Condition_Base {
 					'' => __( 'All', 'elementor-pro' ),
 				],
 				'autocomplete' => [
-					'object' => 'tax',
+					'object' => QueryModule::QUERY_OBJECT_TAX,
 					'by_field' => 'term_id',
 					'query' => [
 						'taxonomy' => $this->taxonomy->name,

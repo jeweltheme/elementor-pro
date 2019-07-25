@@ -96,7 +96,7 @@ class Sitemap extends Base {
 				'label_block' => true,
 				'multiple' => true,
 				'autocomplete' => [
-					'object' => 'post',
+					'object' => Query_Module::QUERY_OBJECT_POST,
 				],
 				'condition' => [
 					'sitemap_exclude' => 'manual_selection',

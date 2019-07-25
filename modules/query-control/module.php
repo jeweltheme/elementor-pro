@@ -24,9 +24,28 @@ class Module extends Module_Base {
 	const AUTOCOMPLETE_ERROR_CODE = 'QueryControlAutocomplete';
 	const GET_TITLES_ERROR_CODE = 'QueryControlGetTitles';
 
+	// Supported objects for query:
+	const QUERY_OBJECT_POST = 'post';
+	const QUERY_OBJECT_TAX = 'tax';
+	const QUERY_OBJECT_AUTHOR = 'author';
+	const QUERY_OBJECT_USER = 'user';
+	const QUERY_OBJECT_LIBRARY_TEMPLATE = 'library_template';
+	const QUERY_OBJECT_ATTACHMENT = 'attachment';
+
+	// Objects that are manipulated by js (not sent in AJAX):
+	const QUERY_OBJECT_CPT_TAX = 'cpt_tax';
+	const QUERY_OBJECT_JS = 'js';
+
 	public static $displayed_ids = [];
 
-	private static $supported_objects_for_query = [ 'post', 'tax', 'author', 'user', 'library_template', 'attachment', 'custom' ];
+	private static $supported_objects_for_query = [
+		self::QUERY_OBJECT_POST,
+		self::QUERY_OBJECT_TAX,
+		self::QUERY_OBJECT_AUTHOR,
+		self::QUERY_OBJECT_USER,
+		self::QUERY_OBJECT_LIBRARY_TEMPLATE,
+		self::QUERY_OBJECT_ATTACHMENT,
+	];
 
 	public function __construct() {
 		parent::__construct();
@@ -35,7 +54,7 @@ class Module extends Module_Base {
 	}
 
 	public static function add_to_avoid_list( $ids ) {
-		self::$displayed_ids = array_merge( self::$displayed_ids, $ids );
+		self::$displayed_ids = array_unique( array_merge( self::$displayed_ids, $ids ) );
 	}
 
 	public static function get_avoid_list_ids() {
@@ -70,7 +89,7 @@ class Module extends Module_Base {
 				'label' => __( 'Search & Select', 'elementor-pro' ),
 				'type' => self::QUERY_CONTROL_ID,
 				'autocomplete' => [
-					'object' => 'post',
+					'object' => self::QUERY_OBJECT_POST,
 				],
 				'options' => [],
 				'label_block' => true,
@@ -116,7 +135,7 @@ class Module extends Module_Base {
 
 	/**
 	 * 'autocomplete' => [
-	 *    'object' => 'post|tax|user|library_template|attachment|js|custom', // required
+	 *    'object' => 'post|tax|user|library_template|attachment|js', // required
 	 *    'display' => 'minimal(default)|detailed|custom_filter_name',
 	 *    'by_field' => 'term_taxonomy_id(default)|term_id', // relevant only if `object` is tax|cpt_tax
 	 *    'query' => [
@@ -143,7 +162,6 @@ class Module extends Module_Base {
 	 *                            By the time the data is sent to the server,
 	 *                            the 'object' value should be replaced with one of the other valid 'object' values and
 	 *                            the Query array populated accordingly.
-	 *      'custom'            : will use WP_Query(), if query['post_type'] is empty or missing, will default to 'any'.
 	 *      user_defined        : will invoke apply_filters() using the user_defined value as filter name,
 	 *                            `elementor/query/[get_value_titles|get_autocomplete]/{user_defined}`.
 	 *
@@ -192,6 +210,9 @@ class Module extends Module_Base {
 	}
 
 	private function autocomplete_query_for_post( $data ) {
+		if ( ! isset( $data['autocomplete']['query'] ) ) {
+			return new \WP_Error( self::AUTOCOMPLETE_ERROR_CODE, 'Missing autocomplete[`query`] data' );
+		}
 		$query = $data['autocomplete']['query'];
 		if ( empty( $query['post_type'] ) ) {
 			$query['post_type'] = 'any';
@@ -219,6 +240,9 @@ class Module extends Module_Base {
 
 	private function autocomplete_query_for_attachment( $data ) {
 		$query = $this->autocomplete_query_for_post( $data );
+		if ( is_wp_error( $query ) ) {
+			return $query;
+		}
 		$query['post_type'] = 'attachment';
 		$query['post_status'] = 'inherit';
 
@@ -238,6 +262,9 @@ class Module extends Module_Base {
 
 	private function autocomplete_query_for_author( $data ) {
 		$query = $this->autocomplete_query_for_user( $data );
+		if ( is_wp_error( $query ) ) {
+			return $query;
+		}
 		$query['who'] = 'authors';
 		$query['has_published_posts'] = true;
 		return $query;
@@ -248,6 +275,7 @@ class Module extends Module_Base {
 		if ( ! empty( $query ) ) {
 			return $query;
 		}
+
 		$query = [
 			'fields' => [
 				'ID',
@@ -263,11 +291,6 @@ class Module extends Module_Base {
 			$query['fields'][] = 'user_email';
 		}
 		return $query;
-	}
-
-	// todo: should add the search param to query?
-	private function build_query_params_for_custom( $data ) {
-		return $data['get_titles']['query'];
 	}
 
 	private function get_titles_query_data( $data ) {
@@ -316,10 +339,7 @@ class Module extends Module_Base {
 	}
 
 	private function get_titles_query_for_tax( $data ) {
-		if ( empty( $data['get_titles']['by_field'] ) ) {
-			return new \WP_Error( self::AUTOCOMPLETE_ERROR_CODE, 'Empty or incomplete data' );
-		}
-		$by_field = $data['get_titles']['by_field'];
+		$by_field = empty( $data['get_titles']['by_field'] ) ? 'term_taxonomy_id' : $data['get_titles']['by_field'];
 		return [
 			$by_field => (array) $data['id'],
 			'hide_empty' => false,
@@ -365,10 +385,6 @@ class Module extends Module_Base {
 			$query['fields'][] = 'user_email';
 		}
 		return $query;
-	}
-
-	private function get_titles_query_for_custom( $data ) {
-		return $data['get_titles']['query'];
 	}
 
 	/**
@@ -513,8 +529,7 @@ class Module extends Module_Base {
 		$query_args = $query_data['query'];
 
 		switch ( $query_data['object'] ) {
-			case 'cpt_tax':
-			case 'tax':
+			case self::QUERY_OBJECT_TAX:
 				$by_field = ! empty( $query_data['by_field'] ) ? $query_data['by_field'] : 'term_taxonomy_id';
 				$terms = get_terms( $query_args );
 				if ( is_wp_error( $terms ) ) {
@@ -529,9 +544,8 @@ class Module extends Module_Base {
 					}
 				}
 				break;
-			case 'attachment':
-			case 'custom':
-			case 'post':
+			case self::QUERY_OBJECT_ATTACHMENT:
+			case self::QUERY_OBJECT_POST:
 				$query = new \WP_Query( $query_args );
 
 				foreach ( $query->posts as $post ) {
@@ -544,7 +558,7 @@ class Module extends Module_Base {
 					}
 				}
 				break;
-			case 'library_template':
+			case self::QUERY_OBJECT_LIBRARY_TEMPLATE:
 				$query = new \WP_Query( $query_args );
 
 				foreach ( $query->posts as $post ) {
@@ -558,8 +572,8 @@ class Module extends Module_Base {
 					}
 				}
 				break;
-			case 'user':
-			case 'author':
+			case self::QUERY_OBJECT_USER:
+			case self::QUERY_OBJECT_AUTHOR:
 				$user_query = new \WP_User_Query( $query_args );
 
 				foreach ( $user_query->get_results() as $user ) {
@@ -665,8 +679,7 @@ class Module extends Module_Base {
 
 		$results = [];
 		switch ( $query_data['object'] ) {
-			case 'cpt_tax':
-			case 'tax':
+			case self::QUERY_OBJECT_TAX:
 				$by_field = ! empty( $query_data['by_field'] ) ? $query_data['by_field'] : 'term_taxonomy_id';
 				$terms = get_terms( $query_args );
 
@@ -680,9 +693,8 @@ class Module extends Module_Base {
 				}
 				break;
 
-			case 'attachment':
-			case 'custom':
-			case 'post':
+			case self::QUERY_OBJECT_ATTACHMENT:
+			case self::QUERY_OBJECT_POST:
 				$query = new \WP_Query( $query_args );
 
 				foreach ( $query->posts as $post ) {
@@ -691,7 +703,7 @@ class Module extends Module_Base {
 					}
 				}
 				break;
-			case 'library_template':
+			case self::QUERY_OBJECT_LIBRARY_TEMPLATE:
 				$query = new \WP_Query( $query_args );
 
 				foreach ( $query->posts as $post ) {
@@ -701,8 +713,8 @@ class Module extends Module_Base {
 					}
 				}
 				break;
-			case 'author':
-			case 'user':
+			case self::QUERY_OBJECT_AUTHOR:
+			case self::QUERY_OBJECT_USER:
 				$user_query = new \WP_User_Query( $query_args );
 
 				foreach ( $user_query->get_results() as $user ) {

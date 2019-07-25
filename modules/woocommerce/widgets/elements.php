@@ -81,7 +81,7 @@ class Elements extends Widget_Base {
 				'options' => [],
 				'label_block' => true,
 				'autocomplete' => [
-					'object' => 'post',
+					'object' => QueryModule::QUERY_OBJECT_POST,
 					'query' => [
 						'post_type' => [ 'product' ],
 					],

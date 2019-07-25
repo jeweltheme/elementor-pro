@@ -396,7 +396,7 @@ class Admin {
 		$license_key = self::get_license_key();
 
 		if ( empty( $license_key ) ) {
-			$links['active_license'] = sprintf( '<a href="%s" class="elementor-plugins-gopro">%s</a>', self::get_url(), __( 'Activate License', 'elementor-pro' ) );
+			$links['active_license'] = sprintf( '<a href="%s" class="elementor-plugins-gopro">%s</a>', self::get_connect_url(), __( 'Connect & Activate', 'elementor-pro' ) );
 		}
 
 		return $links;
