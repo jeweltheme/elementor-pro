@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.6.1 - 24-07-2019 */
+/*! elementor-pro - v2.6.4 - 21-08-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -82,23 +82,23 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 56);
+/******/ 	return __webpack_require__(__webpack_require__.s = 68);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 56:
+/***/ 68:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var modules = {
-	widget_template_edit_button: __webpack_require__(57),
-	forms_integrations: __webpack_require__(59),
-	AssetsManager: __webpack_require__(61),
-	RoleManager: __webpack_require__(69),
-	ThemeBuilder: __webpack_require__(71)
+	widget_template_edit_button: __webpack_require__(69),
+	forms_integrations: __webpack_require__(71),
+	AssetsManager: __webpack_require__(73),
+	RoleManager: __webpack_require__(81),
+	ThemeBuilder: __webpack_require__(83)
 };
 
 window.elementorProAdmin = {
@@ -116,20 +116,20 @@ jQuery(function () {
 
 /***/ }),
 
-/***/ 57:
+/***/ 69:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var EditButton = __webpack_require__(58);
+	var EditButton = __webpack_require__(70);
 	this.editButton = new EditButton();
 };
 
 /***/ }),
 
-/***/ 58:
+/***/ 70:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -163,14 +163,14 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 59:
+/***/ 71:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var ApiValidations = __webpack_require__(60);
+	var ApiValidations = __webpack_require__(72);
 
 	this.dripButton = new ApiValidations('drip_api_token');
 	this.getResponse = new ApiValidations('getresponse_api_key');
@@ -182,7 +182,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 60:
+/***/ 72:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -259,17 +259,17 @@ module.exports = function (key, fieldID) {
 
 /***/ }),
 
-/***/ 61:
+/***/ 73:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var FontManager = __webpack_require__(62),
-	    TypekitAdmin = __webpack_require__(65),
-	    CustomIcon = __webpack_require__(66).default,
-	    FontAwesomeProAdmin = __webpack_require__(68).default;
+	var FontManager = __webpack_require__(74),
+	    TypekitAdmin = __webpack_require__(77),
+	    CustomIcon = __webpack_require__(78).default,
+	    FontAwesomeProAdmin = __webpack_require__(80).default;
 	this.fontManager = new FontManager();
 	this.typekit = new TypekitAdmin();
 	this.fontAwesomePro = new FontAwesomeProAdmin();
@@ -278,7 +278,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 62:
+/***/ 74:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -288,8 +288,8 @@ module.exports = function () {
 	var self = this;
 
 	self.fields = {
-		upload: __webpack_require__(63),
-		repeater: __webpack_require__(64)
+		upload: __webpack_require__(75),
+		repeater: __webpack_require__(76)
 	};
 
 	self.selectors = {
@@ -425,7 +425,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 63:
+/***/ 75:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -603,7 +603,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 64:
+/***/ 76:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -762,7 +762,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 65:
+/***/ 77:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -838,7 +838,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 66:
+/***/ 78:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -884,7 +884,7 @@ var CustomIcons = function (_elementorModules$Vie) {
 		value: function getDefaultSettings() {
 			return {
 				fields: {
-					dropzone: __webpack_require__(67).default
+					dropzone: __webpack_require__(79).default
 				},
 				classes: {
 					editPageClass: 'post-type-elementor_icons',
@@ -1144,7 +1144,7 @@ exports.default = CustomIcons;
 
 /***/ }),
 
-/***/ 67:
+/***/ 79:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1341,7 +1341,7 @@ exports.default = DropZoneField;
 
 /***/ }),
 
-/***/ 68:
+/***/ 80:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1460,20 +1460,20 @@ exports.default = _class;
 
 /***/ }),
 
-/***/ 69:
+/***/ 81:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var AdvancedRoleManager = __webpack_require__(70);
+	var AdvancedRoleManager = __webpack_require__(82);
 	this.advancedRoleManager = new AdvancedRoleManager();
 };
 
 /***/ }),
 
-/***/ 70:
+/***/ 82:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1513,20 +1513,20 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 71:
+/***/ 83:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var CreateTemplateDialog = __webpack_require__(72);
+	var CreateTemplateDialog = __webpack_require__(84);
 	this.createTemplateDialog = new CreateTemplateDialog();
 };
 
 /***/ }),
 
-/***/ 72:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -367,6 +367,7 @@ class Custom_Icons extends  Assets_Base {
 			$icons = new \WP_Query( [
 				'post_type' => Icons_Manager::CPT,
 				'posts_per_page' => -1,
+				'post_status' => 'publish',
 			] );
 			$config = [];
 			foreach ( $icons->posts as $icon_set ) {

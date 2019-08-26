@@ -1,5 +1,26 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.6.4 - 2019-08-21
+* Tweak: Added compatibility for the upcoming release of Elementor v2.7
+* Fix: Changed WhatsApp base URL in Share Buttons widget for cross-device compatibility
+* Fix: Random slides order after several clicks on pagination in Testimonial Carousel widget
+
+#### 2.6.3 - 2019-08-18
+* Fix: Core version rollback to `>2.6.0` causes a fatal error
+* Fix: Duplicate images when slideshow skin is selected in Media Carousel lightbox
+* Fix: Default bottom margin added to reCAPTCHA V3 badge
+* Fix: Input glitch in reCAPTCHA V3 threshold settings
+
+#### 2.6.2 - 2019-07-30
+* Tweak: Better accessibility support in Search Form widget
+* Fix: UI glitched in Popup publish screen ([#8616](https://github.com/elementor/elementor/issues/8616))
+* Fix: "Child of Term" and "Any child of term" conditions ([#8695](https://github.com/elementor/elementor/issues/8695))
+* Fix: Restored `library_widget_templates` action hook for 3rd party compatibility ([#8687](https://github.com/elementor/elementor/issues/8687))
+* Fix: Twitter Icon missing in Blockquote widget
+* Fix: Form reCAPTCHA v3 badge position not working
+* Fix: Renewal notice bar appears in wrong situations
+* Fix: Draft Icon Set loads empty Icon Library
+
 #### 2.6.1 - 2019-07-24
 * Fix: Query Control autocomplete not retrieving results ([#8672](https://github.com/elementor/elementor/issues/8672), [#8661](https://github.com/elementor/elementor/issues/8661))
 * Fix: Price Table features section not working ([#8660](https://github.com/elementor/elementor/issues/8660))

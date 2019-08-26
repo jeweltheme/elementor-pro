@@ -353,7 +353,7 @@ class Form extends Form_Base {
 					'bottomleft' => __( 'Bottom Left', 'elementor-pro' ),
 					'inline' => __( 'Inline', 'elementor-pro' ),
 				],
-				'description' => __( 'Switch to frontend to view', 'elementor-pro' ),
+				'description' => __( 'To view the validation badge, switch to preview mode', 'elementor-pro' ),
 				'conditions' => [
 					'terms' => [
 						[
@@ -871,6 +871,7 @@ class Form extends Form_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-field-group' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-field-group.recaptcha_v3-bottomleft, {{WRAPPER}} .elementor-field-group.recaptcha_v3-bottomright' => 'margin-bottom: 0;',
 					'{{WRAPPER}} .elementor-form-fields-wrapper' => 'margin-bottom: -{{SIZE}}{{UNIT}};',
 				],
 			]

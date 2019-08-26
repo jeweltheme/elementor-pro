@@ -274,6 +274,10 @@ class Admin {
 	public function is_license_about_to_expire() {
 		$license_data = API::get_license_data();
 
+		if ( ! empty( $license_data['subscriptions'] ) && 'enable' === $license_data['subscriptions'] ) {
+			return false;
+		}
+
 		if ( 'lifetime' === $license_data['expires'] ) {
 			return false;
 		}
@@ -337,10 +341,6 @@ class Admin {
 		}
 
 		if ( API::STATUS_VALID === $license_data['license'] ) {
-			if ( ! empty( $license_data['subscriptions'] ) && 'enable' === $license_data['subscriptions'] ) {
-				return;
-			}
-
 			if ( $this->is_license_about_to_expire() ) {
 				$title = sprintf( __( 'Your License Will Expire in %s.', 'elementor-pro' ), human_time_diff( current_time( 'timestamp' ), strtotime( $license_data['expires'] ) ) );
 				$description = sprintf( __( '<a href="%s" target="_blank">Renew your license today</a>, to keep getting feature updates, premium support and unlimited access to the template library.', 'elementor-pro' ), $renew_url );

@@ -767,14 +767,14 @@ class Search_Form extends Base {
 				<?php endif; ?>
 				<input <?php echo $this->get_render_attribute_string( 'input' ); ?>>
 				<?php if ( 'classic' === $settings['skin'] ) : ?>
-				<button class="elementor-search-form__submit" type="submit">
-					<?php if ( 'icon' === $settings['button_type'] ) : ?>
-						<i <?php echo $this->get_render_attribute_string( 'icon' ); ?> aria-hidden="true"></i>
-						<span class="elementor-screen-only"><?php esc_html_e( 'Search', 'elementor-pro' ); ?></span>
-					<?php elseif ( ! empty( $settings['button_text'] ) ) : ?>
-						<?php echo $settings['button_text']; ?>
-					<?php endif; ?>
-				</button>
+					<button class="elementor-search-form__submit" type="submit" title="<?php esc_attr_e( 'Search', 'elementor-pro' ); ?>" aria-label="<?php esc_attr_e( 'Search', 'elementor-pro' ); ?>">
+						<?php if ( 'icon' === $settings['button_type'] ) : ?>
+							<i <?php echo $this->get_render_attribute_string( 'icon' ); ?> aria-hidden="true"></i>
+							<span class="elementor-screen-only"><?php esc_html_e( 'Search', 'elementor-pro' ); ?></span>
+						<?php elseif ( ! empty( $settings['button_text'] ) ) : ?>
+							<?php echo $settings['button_text']; ?>
+						<?php endif; ?>
+					</button>
 				<?php endif; ?>
 				<?php if ( 'full_screen' === $settings['skin'] ) : ?>
 				<div class="dialog-lightbox-close-button dialog-close-button">

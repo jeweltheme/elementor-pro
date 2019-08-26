@@ -275,7 +275,7 @@ class Media_Carousel extends Base {
 
 		$image_link_to = $this->get_image_link_to( $slide );
 
-		if ( $image_link_to ) {
+		if ( $image_link_to && empty( $settings['thumbs_slider'] ) ) {
 			$this->add_render_attribute( $element_key . '_link', 'href', $image_link_to );
 
 			if ( 'custom' === $slide['image_link_to_type'] ) {

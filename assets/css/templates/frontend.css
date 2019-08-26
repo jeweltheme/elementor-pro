@@ -450,6 +450,9 @@
 .elementor-login .elementor-lost-password {
   font-size: 0.85em; }
 
+.elementor-field-type-recaptcha_v3 .elementor-field-label {
+  display: none; }
+
 .elementor-widget-price-list .elementor-price-list {
   list-style: none;
   padding: 0;
@@ -2680,8 +2683,6 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
       vertical-align: middle; }
     .elementor-blockquote__tweet-button i + span {
       margin-left: 0.5em; }
-    .elementor-blockquote__tweet-button i {
-      font-family: FontAwesome !important; }
   .elementor-blockquote__tweet-label {
     white-space: pre-wrap; }
   .elementor-blockquote--button-skin-classic .elementor-blockquote__tweet-button, .elementor-blockquote--button-skin-bubble .elementor-blockquote__tweet-button {
