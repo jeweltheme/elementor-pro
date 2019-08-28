@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.6.4 - 21-08-2019 */
+/*! elementor-pro - v2.6.5 - 26-08-2019 */
 @charset "UTF-8";
 .elementor-bg-transform .elementor-bg {
   will-change: transform; }
@@ -2176,8 +2176,35 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%; } }
 
+.woocommerce div.product.elementor .elementor-widget-wc-add-to-cart.elementor-button-info button.button.alt.elementor-button {
+  background-color: #5bc0de; }
+
+.woocommerce div.product.elementor .elementor-widget-wc-add-to-cart.elementor-button-success button.button.alt.elementor-button {
+  background-color: #5cb85c; }
+
+.woocommerce div.product.elementor .elementor-widget-wc-add-to-cart.elementor-button-warning button.button.alt.elementor-button {
+  background-color: #f0ad4e; }
+
+.woocommerce div.product.elementor .elementor-widget-wc-add-to-cart.elementor-button-danger button.button.alt.elementor-button {
+  background-color: #d9534f; }
+
 .elementor-widget-wc-add-to-cart .quantity {
   display: inline-block; }
+
+.elementor-widget-wc-add-to-cart.elementor-align-center form.cart {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.elementor-widget-wc-add-to-cart.elementor-align-right form.cart {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+
+.elementor-widget-wc-add-to-cart.elementor-align-left form.cart {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
 
 .woocommerce div.product.elementor {
   /*  Reset WC tabs style  */

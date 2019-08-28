@@ -1650,8 +1650,29 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
     .woocommerce div.product.elementor .elementor-add-to-cart-mobile--align-justify form.cart.variations_form .woocommerce-variation-add-to-cart button {
       flex-basis: 100%; } }
 
+.woocommerce div.product.elementor .elementor-widget-wc-add-to-cart.elementor-button-info button.button.alt.elementor-button {
+  background-color: #5bc0de; }
+
+.woocommerce div.product.elementor .elementor-widget-wc-add-to-cart.elementor-button-success button.button.alt.elementor-button {
+  background-color: #5cb85c; }
+
+.woocommerce div.product.elementor .elementor-widget-wc-add-to-cart.elementor-button-warning button.button.alt.elementor-button {
+  background-color: #f0ad4e; }
+
+.woocommerce div.product.elementor .elementor-widget-wc-add-to-cart.elementor-button-danger button.button.alt.elementor-button {
+  background-color: #d9534f; }
+
 .elementor-widget-wc-add-to-cart .quantity {
   display: inline-block; }
+
+.elementor-widget-wc-add-to-cart.elementor-align-center form.cart {
+  justify-content: center; }
+
+.elementor-widget-wc-add-to-cart.elementor-align-right form.cart {
+  justify-content: flex-end; }
+
+.elementor-widget-wc-add-to-cart.elementor-align-left form.cart {
+  justify-content: flex-end; }
 
 .woocommerce div.product.elementor {
   /*  Reset WC tabs style  */

@@ -1,5 +1,10 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.6.5 - 2019-08-26
+* Tweak: Added compatibility for the upcoming release of Elementor v2.7
+* Fix: Button style not working when `quantity` is enabled in Custom Add To Cart widget
+* Fix: Updated minified JS file fixed WhatsApp base URL in Share Buttons widget
+
 #### 2.6.4 - 2019-08-21
 * Tweak: Added compatibility for the upcoming release of Elementor v2.7
 * Fix: Changed WhatsApp base URL in Share Buttons widget for cross-device compatibility
